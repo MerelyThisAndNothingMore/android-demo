@@ -1,0 +1,29 @@
+
+apply from: '../lib_base.gradle'
+
+android {
+    defaultConfig {
+        resValue "string", "BUGLY_APP_ID", ""
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+    resourcePrefix "common_"
+    namespace 'com.example.libcommon'
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    api project(path: ':lib_base')
+
+    api "com.google.dagger:hilt-android:2.38.1"
+
+    kapt "com.alibaba:arouter-compiler:1.5.1"
+    kapt "org.greenrobot:eventbus-annotation-processor:3.2.0"
+    kapt "com.google.auto.service:auto-service-annotations:1.0"
+    kapt "com.google.dagger:hilt-compiler:2.38.1"
+    kapt "androidx.lifecycle:lifecycle-compiler:2.4.1"
+}

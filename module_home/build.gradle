@@ -1,0 +1,7 @@
+
+apply from: '../module_home.gradle'
+
+android {
+    resourcePrefix "home_"
+    namespace 'com.example.modulehome'
+}

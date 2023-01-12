@@ -1,0 +1,1 @@
+/Users/bytedance/Desktop/AndroidDemo/buildSrc/build/classes/kotlin/main/com/example/buildsrc/ProjectBuildConfig$Version.class:/Users/bytedance/Desktop/AndroidDemo/buildSrc/build/classes/kotlin/main/com/example/buildsrc/ProjectBuildConfig.class

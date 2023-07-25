@@ -15,7 +15,8 @@ object BindingReflexHelper {
 
     fun <VB : ViewBinding> getViewBinding(aClass: Class<*>, inflater: LayoutInflater?): VB {
         try {
-            val actualTypeArguments = (Objects.requireNonNull(aClass.genericSuperclass) as ParameterizedType).actualTypeArguments
+            val actualTypeArguments =
+                (Objects.requireNonNull(aClass.genericSuperclass) as ParameterizedType).actualTypeArguments
             for (i in actualTypeArguments.indices) {
                 val tClass: Class<Any>
                 try {

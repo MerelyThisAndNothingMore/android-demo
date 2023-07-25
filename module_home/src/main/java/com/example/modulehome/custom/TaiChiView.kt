@@ -1,4 +1,4 @@
-package com.example.modulehome.talchi
+package com.example.modulehome.custom
 
 import android.animation.ObjectAnimator
 import android.content.Context
@@ -37,6 +37,9 @@ class TaiChiView(
 
     private var animator: ObjectAnimator? = null
     private var oneCircleTime: Long = DEFAULT_ONE_CIRCLE_TIME
+
+    var isPlaying: Boolean = false
+        private set
 
     init {
         init()
@@ -114,10 +117,12 @@ class TaiChiView(
         } else {
             animator?.resume()
         }
+        isPlaying = true
     }
 
     fun animPause() {
         animator?.pause()
+        isPlaying = false
     }
 
     fun animStop() {

@@ -10,6 +10,9 @@ import android.view.View
 import kotlin.math.cos
 import kotlin.math.sin
 
+/**
+ * 心形线
+ */
 class CartesianView(
     context: Context,
     attrs: AttributeSet

@@ -4,16 +4,24 @@
 
     <application>
         <activity
-            android:name=".homePage.HomePageActivity"
-            android:theme="@style/Theme.AndroidDemo"
-            android:exported="true">
+            android:name=".splash.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AndroidDemo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".custom.CustomActivity"
+        <activity
+            android:name=".homePage.HomePageActivity"
+            android:theme="@style/Theme.AndroidDemo">
+
+
+        </activity>
+
+        <activity
+            android:name=".custom.CustomActivity"
             android:theme="@style/Theme.AndroidDemo">
 
         </activity>

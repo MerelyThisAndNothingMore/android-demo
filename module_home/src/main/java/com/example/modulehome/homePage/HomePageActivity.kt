@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.example.libbase.ktx.observeLiveData
 import com.example.libcommon.baseui.BaseActivity
 import com.example.modulehome.custom.CustomActivity
@@ -19,8 +20,16 @@ import dagger.hilt.android.AndroidEntryPoint
  * @author : zhangjin.rolling
  * @date : 星期二 2023/1/10
  */
-@AndroidEntryPoint
 class HomePageActivity : BaseActivity<HomePageActivityBinding, HomePageViewModel>() {
+
+    companion object {
+
+
+        fun launchHomePage(activity: AppCompatActivity) {
+            val intent = Intent(activity, HomePageActivity::class.java)
+
+        }
+    }
 
     private val adapter by lazy {
         CommonAdapter<CommonHolderData, CommonViewHolder>(

@@ -1,4 +1,4 @@
-package com.example.modulehome.custom
+package com.example.modulehome.custom.examples
 
 import android.animation.ObjectAnimator
 import android.content.Context
@@ -13,7 +13,7 @@ import android.view.animation.LinearInterpolator
 
 class TaiChiView(
     context: Context,
-    attrs: AttributeSet
+    attrs: AttributeSet? = null
 ) : View(context, attrs) {
 
     companion object {

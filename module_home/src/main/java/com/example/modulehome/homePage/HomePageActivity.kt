@@ -27,7 +27,7 @@ class HomePageActivity : BaseActivity<HomePageActivityBinding, HomePageViewModel
 
         fun launchHomePage(activity: AppCompatActivity) {
             val intent = Intent(activity, HomePageActivity::class.java)
-
+            activity.startActivity(intent)
         }
     }
 

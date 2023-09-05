@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:startColor="#FF0000"
+    android:endColor="#8B00FF"
+    android:angle="90"
+    android:type="linear">
+    <item android:offset="0.14" android:color="#FF7F00" /> <!-- 橙色 -->
+    <item android:offset="0.28" android:color="#FFFF00" /> <!-- 黄色 -->
+    <item android:offset="0.42" android:color="#7FFF00" /> <!-- 浅绿 -->
+    <item android:offset="0.56" android:color="#00FF00" /> <!-- 绿色 -->
+    <item android:offset="0.70" android:color="#00FF7F" /> <!-- 青绿 -->
+    <item android:offset="0.85" android:color="#007FFF" /> <!-- 天蓝 -->
+</gradient>
+    </shape>

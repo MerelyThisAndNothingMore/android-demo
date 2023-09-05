@@ -1,4 +1,4 @@
-package com.example.modulehome.custom
+package com.example.modulehome.custom.examples
 
 import android.content.Context
 import android.graphics.Canvas
@@ -15,7 +15,7 @@ import kotlin.math.sin
  */
 class CartesianView(
     context: Context,
-    attrs: AttributeSet
+    attrs: AttributeSet? = null
 ) : View(context, attrs) {
 
     companion object {

@@ -15,7 +15,8 @@ import com.example.libbase.utils.EventBusHelper
  * @author : zhangjin.rolling
  * @date : 星期二 2023/1/10
  */
-abstract class FrameBaseActivity<VB : ViewBinding, VM : FrameBaseViewModel> : AppCompatActivity(), FrameView<VB>, NetworkStateChangeListener {
+abstract class FrameBaseActivity<VB : ViewBinding, VM : FrameBaseViewModel>
+    : AppCompatActivity(), FrameView<VB>, NetworkStateChangeListener {
 
     protected val viewBinding: VB by lazy {
         BindingReflexHelper.getViewBinding(javaClass, layoutInflater)

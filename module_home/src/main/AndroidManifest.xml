@@ -6,7 +6,7 @@
         <activity
             android:name=".splash.SplashActivity"
             android:exported="true"
-            android:theme="@style/home_LaunchTheme">
+            android:theme="@style/Theme_AndroidDemo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

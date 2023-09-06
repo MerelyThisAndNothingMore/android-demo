@@ -19,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class SplashActivity : BaseActivity<HomeSplashActivityBinding, SplashActivityViewModel>() {
 
     companion object {
-        private const val SPLASH_PAGE_LAST_TIME = 3000L
+        private const val SPLASH_PAGE_LAST_TIME = 2000L
 
     }
 

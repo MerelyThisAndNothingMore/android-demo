@@ -17,10 +17,10 @@ class ConwayLifeGame(
 ) : View(context, attrs) {
 
     companion object {
-
+        private const val CELL_SIZE = 10
     }
 
-    private val cellSize = 20
+    private val cellSize = CELL_SIZE
     private val rows = width / cellSize
     private val cols = height / cellSize
     private var cells: Array<Array<Boolean>> = Array(rows) { Array(cols) { false } }

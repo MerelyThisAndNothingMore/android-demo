@@ -25,9 +25,9 @@ abstract class BaseFrameFragment<VB : ViewBinding, VM : BaseViewModel> : Fragmen
      */
     private var _binding: VB? = null
 
-    protected val mBinding get() = _binding!!
+    protected val binding get() = _binding!!
 
-    protected abstract val mViewModel: VM
+    protected abstract val viewModel: VM
 
     /**
      * 是否有 [RegisterEventBus] 注解，避免重复调用 [Class.isAnnotation]

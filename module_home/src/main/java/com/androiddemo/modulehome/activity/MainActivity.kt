@@ -4,6 +4,7 @@ import android.graphics.Color
 import androidx.activity.viewModels
 import com.androiddemo.modulehome.databinding.HomeActivityMainBinding
 import com.androiddemo.base.ktx.observeLiveData
+import com.androiddemo.base.ktx.setOnSingleClickListener
 import com.androiddemo.common.ui.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,23 +20,27 @@ class MainActivity : BaseActivity<HomeActivityMainBinding, HomeViewModel>() {
     /**
      * 通过 viewModels() + Hilt 获取 ViewModel 实例
      */
-    override val mViewModel by viewModels<HomeViewModel>()
+    override val viewModel by viewModels<HomeViewModel>()
 
     override fun createVB() = HomeActivityMainBinding.inflate(layoutInflater)
 
-    override fun HomeActivityMainBinding.initView() {}
+    override fun HomeActivityMainBinding.initView() {
+        vTvHello.setOnSingleClickListener {
+            viewModel.inspectImages(this@MainActivity)
+        }
+    }
 
     override fun initObserve() {
-        observeLiveData(mViewModel.data, ::processData)
+        observeLiveData(viewModel.data, ::processData)
     }
 
     private fun processData(data: String) {
-        mBinding.vTvHello.text = data
-        mBinding.vTvHello.setTextColor(Color.BLUE)
+        binding.vTvHello.text = data
+        binding.vTvHello.setTextColor(Color.BLUE)
     }
 
     override fun initRequestData() {
         // 模拟获取数据
-        mViewModel.getData()
+        viewModel.getData()
     }
 }

@@ -25,9 +25,9 @@ import me.jessyan.autosize.AutoSizeCompat
 abstract class BaseFrameActivity<VB : ViewBinding, VM : BaseViewModel> : AppCompatActivity(),
     FrameView<VB>, NetworkStateChangeListener {
 
-    protected abstract val mViewModel: VM
+    protected abstract val viewModel: VM
 
-    protected val mBinding: VB by lazy(mode = LazyThreadSafetyMode.NONE) { createVB() }
+    protected val binding: VB by lazy(mode = LazyThreadSafetyMode.NONE) { createVB() }
 
     /**
      * 是否有 [RegisterEventBus] 注解，避免重复调用 [Class.isAnnotation]
@@ -36,7 +36,7 @@ abstract class BaseFrameActivity<VB : ViewBinding, VM : BaseViewModel> : AppComp
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(mBinding.root)
+        setContentView(binding.root)
         // ARouter 依赖注入
         ARouter.getInstance().inject(this)
 
@@ -47,7 +47,7 @@ abstract class BaseFrameActivity<VB : ViewBinding, VM : BaseViewModel> : AppComp
         }
 
         setStatusBar()
-        mBinding.initView()
+        binding.initView()
         initNetworkListener()
         initObserve()
         initRequestData()

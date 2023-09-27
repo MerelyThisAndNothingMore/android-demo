@@ -68,6 +68,8 @@ dependencies {
     api DependencyConfig.SDK.TencentBuglyNative
     api DependencyConfig.SDK.TencentTBSX5
 
+    implementation DependencyConfig.GitHub.Glide
+
     kapt DependencyConfig.GitHub.ARouteCompiler
     kapt DependencyConfig.GitHub.EventBusAPT
     kapt DependencyConfig.GitHub.AutoServiceAnnotations

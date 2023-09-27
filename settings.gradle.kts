@@ -17,7 +17,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "AndroidBaseFrameMVVM"
+rootProject.name = "AndroidDemo"
 
 include(
     ":app",

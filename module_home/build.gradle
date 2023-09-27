@@ -1,4 +1,4 @@
-import com.quyunshuo.androidbaseframemvvm.buildsrc.ProjectBuildConfig
+import com.androiddemo.buildsrc.ProjectBuildConfig
 
 //****************************************
 //******** module_home 的配置文件 *********
@@ -19,5 +19,5 @@ apply from: '../base_module.gradle'
 
 android {
     resourcePrefix "home_"
-    namespace 'com.quyunshuo.module.home'
+    namespace 'com.androiddemo.modulehome'
 }

@@ -11,7 +11,9 @@ plugins {
 
 apply from: '../base_lib.gradle'
 
-import com.quyunshuo.androidbaseframemvvm.buildsrc.*
+
+import com.androiddemo.buildsrc.SDKKeyConfig
+import com.androiddemo.buildsrc.*
 
 android {
 
@@ -24,7 +26,7 @@ android {
     }
 
     resourcePrefix "common_"
-    namespace 'com.quyunshuo.androidbaseframemvvm.common'
+    namespace 'com.androiddemo.common'
 }
 
 dependencies {

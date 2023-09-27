@@ -2,7 +2,7 @@
 //******** module模块的公共脚本配置 *********
 //****************************************
 
-import com.quyunshuo.androidbaseframemvvm.buildsrc.*
+import com.androiddemo.buildsrc.*
 
 android {
     compileSdk ProjectBuildConfig.compileSdkVersion

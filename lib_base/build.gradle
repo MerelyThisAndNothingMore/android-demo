@@ -11,7 +11,7 @@ plugins {
 
 apply from: '../base_lib.gradle'
 
-import com.quyunshuo.androidbaseframemvvm.buildsrc.*
+import com.androiddemo.buildsrc.*
 
 android {
 
@@ -20,7 +20,9 @@ android {
     }
 
     resourcePrefix "base_"
-    namespace 'com.quyunshuo.androidbaseframemvvm.base'
+    namespace 'com.androiddemo.base'
+
+//    quyunshuo
 }
 
 dependencies {

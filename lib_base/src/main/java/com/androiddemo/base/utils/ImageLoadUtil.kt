@@ -50,6 +50,7 @@ object ImageLoadUtil {
                     target: Target<File>,
                     isFirstResource: Boolean
                 ): Boolean {
+                    downloadListener.onLoadFailed(e, model as String)
                     return false
                 }
 
@@ -60,6 +61,7 @@ object ImageLoadUtil {
                     dataSource: DataSource,
                     isFirstResource: Boolean
                 ): Boolean {
+                    downloadListener.onResourceReady(resource)
                     return false
                 }
             }

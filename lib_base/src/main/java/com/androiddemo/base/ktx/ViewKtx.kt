@@ -7,13 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.androiddemo.base.view.OnSingleClickListener
 
-/**
- * @Author: QuYunShuo
- * @Time: 2020/9/1
- * @Class: ViewKtx
- * @Remark: View相关的扩展方法
- */
-
 /*************************************** View可见性相关 ********************************************/
 /**
  * 隐藏View
@@ -27,7 +20,7 @@ fun View.gone() {
  * 显示View
  * @receiver View
  */
-fun View.visible() {
+fun View.show() {
     visibility = View.VISIBLE
 }
 
@@ -35,30 +28,16 @@ fun View.visible() {
  * View不可见但存在原位置
  * @receiver View
  */
-fun View.invisible() {
+fun View.hide() {
     visibility = View.INVISIBLE
 }
 
-/**
- * 设置 View 为 [View.VISIBLE]
- * 如果 [isVisible] 值为true，将 [View.setVisibility] 设置为 [View.VISIBLE],反之为 [View.GONE]
- *
- * @receiver View
- * @param isVisible Boolean 是否显示
- */
-fun View.setVisible(isVisible: Boolean) {
-    if (isVisible) visible() else gone()
+fun View.showOrHide(show: Boolean) {
+    if (show) show() else hide()
 }
 
-/**
- * 设置 View 为 [View.GONE]
- * 如果 [isGone] 值为true，将 [View.setVisibility] 设置为 [View.GONE],反之为 [View.VISIBLE]
- *
- * @receiver View
- * @param isGone Boolean 是否隐藏
- */
-fun View.setGone(isGone: Boolean) {
-    if (isGone) visible() else gone()
+fun View.showOrGone(show: Boolean) {
+    if (show) show() else gone()
 }
 
 /*************************************** View宽高相关 ********************************************/
@@ -224,3 +203,60 @@ fun View.getViewId(): Int {
 fun View.setOnSingleClickListener(delayTime: Int = 500, listener: (v: View) -> Unit) {
     setOnClickListener(OnSingleClickListener(delayTime, listener))
 }
+
+
+var View.layoutWidthPx: Int
+    get() {
+        return this.layoutParams.width
+    }
+    set(value) {
+        val lp = this.layoutParams
+        lp.width = value
+        this.layoutParams = lp
+    }
+
+var View.layoutHeightPx: Int
+    get() {
+        return this.layoutParams.height
+    }
+    set(value) {
+        val lp = this.layoutParams
+        lp.height = value
+        this.layoutParams = lp
+    }
+
+fun View.removeSelf() {
+    (this.parent as? ViewGroup)?.removeView(this)
+}
+
+var View.marginStartPx: Int
+    get() = (layoutParams as? ViewGroup.MarginLayoutParams)?.marginStart ?: 0
+    set(value) {
+        val lp = this.layoutParams as? ViewGroup.MarginLayoutParams ?: return
+        lp.marginStart = value
+        this.layoutParams = lp
+    }
+
+var View.marginTopPx: Int
+    get() = (layoutParams as? ViewGroup.MarginLayoutParams)?.topMargin ?: 0
+    set(value) {
+        val lp = this.layoutParams as? ViewGroup.MarginLayoutParams ?: return
+        lp.topMargin = value
+        this.layoutParams = lp
+    }
+
+var View.marginEndPx: Int
+    get() = (layoutParams as? ViewGroup.MarginLayoutParams)?.marginEnd ?: 0
+    set(value) {
+        val lp = this.layoutParams as? ViewGroup.MarginLayoutParams ?: return
+        lp.marginEnd = value
+        this.layoutParams = lp
+    }
+
+var View.marginBottomPx: Int
+    get() = (layoutParams as? ViewGroup.MarginLayoutParams)?.bottomMargin ?: 0
+    set(value) {
+        val lp = this.layoutParams as? ViewGroup.MarginLayoutParams ?: return
+        lp.bottomMargin = value
+        this.layoutParams = lp
+    }

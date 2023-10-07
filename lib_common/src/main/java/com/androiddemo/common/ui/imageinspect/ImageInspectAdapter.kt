@@ -11,6 +11,8 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.adapter.FragmentViewHolder
+import com.androiddemo.base.ktx.gone
+import com.androiddemo.base.ktx.show
 import com.androiddemo.base.utils.ImageDownloadListener
 import com.androiddemo.base.utils.ImageLoadUtil
 import com.androiddemo.common.R
@@ -56,19 +58,34 @@ class ImageInspectAdapter :
         private val bigImage: BigImageView = itemView.findViewById(R.id.big_image)
         private val largeImage: LargeImageView = itemView.findViewById(R.id.large_image)
         fun bind(imageUrl: String) {
+            reset()
 //            ImageLoadUtil.load(imageUrl, normalImage)
+            loadBigImage(imageUrl)
+        }
+
+        private fun reset() {
+            normalImage.gone()
+            bigImage.gone()
+            largeImage.gone()
+        }
+
+        private fun loadLargeImage(imageUrl: String) {
+            largeImage.isEnabled = true
+            ImageLoadUtil.downloadOnly(itemView.context, imageUrl, object : ImageDownloadListener {
+                override fun onLoadFailed(e: Exception?, model: String) {
+
+
+                }
+
+                override fun onResourceReady(resource: File) {
+                    largeImage.setImage(FileBitmapDecoderFactory(resource))
+                }
+            })
+        }
+
+        private fun loadBigImage(imageUrl: String) {
+            bigImage.show()
             bigImage.showImage(Uri.parse(imageUrl))
-//            largeImage.isEnabled = true
-//            ImageLoadUtil.downloadOnly(itemView.context, imageUrl, object : ImageDownloadListener {
-//                override fun onLoadFailed(e: Exception?, model: String) {
-//
-//
-//                }
-//
-//                override fun onResourceReady(resource: File) {
-//                    largeImage.setImage(FileBitmapDecoderFactory(resource))
-//                }
-//            })
         }
     }
 }

@@ -7,18 +7,22 @@
     <ImageView
         android:id="@+id/normal_image"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 
     <com.github.piasy.biv.view.BigImageView
         android:id="@+id/big_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="gone"
         app:initScaleType="start"
         app:optimizeDisplay="false" />
 
     <com.shizhefei.view.largeimage.LargeImageView
         android:id="@+id/large_image"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:scrollbars="vertical|horizontal"
+        android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

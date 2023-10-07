@@ -63,12 +63,14 @@ dependencies {
     api DependencyConfig.GitHub.CoilGIF
     api DependencyConfig.GitHub.CoilSVG
     api DependencyConfig.GitHub.CoilVideo
+    implementation DependencyConfig.GitHub.Glide
+    api DependencyConfig.GitHub.BigImageViewer
+    api DependencyConfig.GitHub.BigImageGlideLoader
+    api DependencyConfig.GitHub.LargeImageView
 
     api DependencyConfig.SDK.TencentBugly
     api DependencyConfig.SDK.TencentBuglyNative
     api DependencyConfig.SDK.TencentTBSX5
-
-    implementation DependencyConfig.GitHub.Glide
 
     kapt DependencyConfig.GitHub.ARouteCompiler
     kapt DependencyConfig.GitHub.EventBusAPT

@@ -13,8 +13,6 @@ import com.androiddemo.base.utils.ForegroundBackgroundObserver
 import com.androiddemo.base.utils.ProcessUtils
 import com.androiddemo.base.utils.SpUtils
 import com.androiddemo.base.utils.network.NetworkStateClient
-import com.github.piasy.biv.BigImageViewer
-import com.github.piasy.biv.loader.glide.GlideImageLoader
 import com.tencent.bugly.crashreport.CrashReport
 import com.tencent.smtt.export.external.TbsCoreSettings
 import com.tencent.smtt.sdk.QbSdk
@@ -76,7 +74,6 @@ class CommonApplication : ApplicationLifecycle, ForegroundBackgroundObserver {
      */
     override fun initByBackstage() {
         initX5WebViewCore()
-        BigImageViewer.initialize(GlideImageLoader.with(BaseApplication.context));
     }
 
     /**

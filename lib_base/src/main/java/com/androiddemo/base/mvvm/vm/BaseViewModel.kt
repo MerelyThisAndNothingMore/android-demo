@@ -1,5 +1,6 @@
 package com.androiddemo.base.mvvm.vm
 
+import android.content.Intent
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.androiddemo.base.utils.StateLayoutEnum
@@ -53,5 +54,9 @@ abstract class BaseViewModel : ViewModel() {
             error -> stateViewLD.postValue(StateLayoutEnum.ERROR)
             noData -> stateViewLD.postValue(StateLayoutEnum.NO_DATA)
         }
+    }
+
+    open fun dealIntent(intent: Intent) {
+
     }
 }

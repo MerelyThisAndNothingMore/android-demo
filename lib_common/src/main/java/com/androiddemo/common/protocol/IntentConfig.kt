@@ -7,6 +7,7 @@ package com.androiddemo.common.protocol
 object IntentConfig {
 
     const val URL_LIST = "url_list"
+    const val IMAGE_URL = "image_url"
 
 
 }

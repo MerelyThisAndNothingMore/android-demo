@@ -64,9 +64,7 @@ dependencies {
     api DependencyConfig.GitHub.CoilSVG
     api DependencyConfig.GitHub.CoilVideo
     implementation DependencyConfig.GitHub.Glide
-    api DependencyConfig.GitHub.BigImageViewer
-    api DependencyConfig.GitHub.BigImageGlideLoader
-    api DependencyConfig.GitHub.LargeImageView
+    api DependencyConfig.GitHub.SubsamplingScaleImageView
 
     api DependencyConfig.SDK.TencentBugly
     api DependencyConfig.SDK.TencentBuglyNative

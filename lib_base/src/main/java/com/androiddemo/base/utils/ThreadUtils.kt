@@ -1,6 +1,7 @@
 package com.androiddemo.base.utils
 
 import android.os.Build
+import android.os.Handler
 import android.os.Looper
 
 /**
@@ -10,6 +11,8 @@ import android.os.Looper
  * @since 2023/3/12 19:29
  */
 object ThreadUtils {
+
+    private val handler: Handler = Handler(Looper.getMainLooper())
 
     /**
      * 判断当前是否是主线程
@@ -21,4 +24,13 @@ object ThreadUtils {
      * @return Boolean
      */
     fun isMainThread(): Boolean = Looper.getMainLooper().thread == Thread.currentThread()
+
+    fun postOnUIThread(runnable: () -> Unit) {
+        handler.post { runnable() }
+    }
+
+    fun postDelayOnUIThread(runnable: () -> Unit, delay: Long) {
+        handler.postDelayed(runnable, delay)
+    }
+
 }

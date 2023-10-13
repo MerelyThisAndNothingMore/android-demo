@@ -11,14 +11,15 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.adapter.FragmentViewHolder
+import coil.ImageLoader
 import com.androiddemo.base.ktx.gone
 import com.androiddemo.base.ktx.show
 import com.androiddemo.base.utils.ImageDownloadListener
 import com.androiddemo.base.utils.ImageLoadUtil
+import com.androiddemo.base.utils.ThreadUtils
 import com.androiddemo.common.R
-import com.github.piasy.biv.view.BigImageView
-import com.shizhefei.view.largeimage.LargeImageView
-import com.shizhefei.view.largeimage.factory.FileBitmapDecoderFactory
+import com.davemorrissey.labs.subscaleview.ImageSource
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import java.io.File
 
 /****
@@ -55,37 +56,39 @@ class ImageInspectAdapter :
     class ImageInspectViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private val normalImage: ImageView = itemView.findViewById(R.id.normal_image)
-        private val bigImage: BigImageView = itemView.findViewById(R.id.big_image)
-        private val largeImage: LargeImageView = itemView.findViewById(R.id.large_image)
+        private val scaleImage: SubsamplingScaleImageView =
+            itemView.findViewById(R.id.scale_image_view)
+
         fun bind(imageUrl: String) {
             reset()
+            loadScaleImage(imageUrl)
 //            ImageLoadUtil.load(imageUrl, normalImage)
-            loadBigImage(imageUrl)
+//            loadBigImage(imageUrl)
         }
 
         private fun reset() {
             normalImage.gone()
-            bigImage.gone()
-            largeImage.gone()
         }
 
-        private fun loadLargeImage(imageUrl: String) {
-            largeImage.isEnabled = true
+        private fun loadScaleImage(imageUrl: String) {
+
+            scaleImage.setMinimumScaleType(SubsamplingScaleImageView.SCALE_TYPE_START)
             ImageLoadUtil.downloadOnly(itemView.context, imageUrl, object : ImageDownloadListener {
                 override fun onLoadFailed(e: Exception?, model: String) {
-
 
                 }
 
                 override fun onResourceReady(resource: File) {
-                    largeImage.setImage(FileBitmapDecoderFactory(resource))
+                    ThreadUtils.postOnUIThread {
+                        scaleImage.setImage(ImageSource.uri(Uri.fromFile(resource)))
+                        scaleImage.postDelayed({
+                            scaleImage.setMinimumScaleType(
+                                SubsamplingScaleImageView.SCALE_TYPE_CUSTOM
+                            )
+                        }, 3000L)
+                    }
                 }
             })
-        }
-
-        private fun loadBigImage(imageUrl: String) {
-            bigImage.show()
-            bigImage.showImage(Uri.parse(imageUrl))
         }
     }
 }

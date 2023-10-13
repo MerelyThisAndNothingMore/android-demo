@@ -1,12 +1,20 @@
 package com.androiddemo.modulehome.activity
 
 import android.graphics.Color
+import android.net.Uri
 import androidx.activity.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.androiddemo.modulehome.databinding.HomeActivityMainBinding
 import com.androiddemo.base.ktx.observeLiveData
 import com.androiddemo.base.ktx.setOnSingleClickListener
+import com.androiddemo.base.utils.ImageDownloadListener
+import com.androiddemo.base.utils.ImageLoadUtil
+import com.androiddemo.base.utils.ThreadUtils
 import com.androiddemo.common.ui.BaseActivity
+import com.davemorrissey.labs.subscaleview.ImageSource
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import dagger.hilt.android.AndroidEntryPoint
+import java.io.File
 
 /**
  * 首页
@@ -17,6 +25,10 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : BaseActivity<HomeActivityMainBinding, HomeViewModel>() {
 
+    private val adapter by lazy {
+        HomePageContentAdapter()
+    }
+
     /**
      * 通过 viewModels() + Hilt 获取 ViewModel 实例
      */
@@ -25,22 +37,21 @@ class MainActivity : BaseActivity<HomeActivityMainBinding, HomeViewModel>() {
     override fun createVB() = HomeActivityMainBinding.inflate(layoutInflater)
 
     override fun HomeActivityMainBinding.initView() {
-        vTvHello.setOnSingleClickListener {
-            viewModel.inspectImages(this@MainActivity)
-        }
+        contentRecyclerView.adapter = adapter
+        contentRecyclerView.layoutManager =
+            LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
     }
 
     override fun initObserve() {
-        observeLiveData(viewModel.data, ::processData)
+        observeLiveData(viewModel.itemList) {
+            adapter.refreshAll(it)
+        }
     }
 
-    private fun processData(data: String) {
-        binding.vTvHello.text = data
-        binding.vTvHello.setTextColor(Color.BLUE)
-    }
 
     override fun initRequestData() {
         // 模拟获取数据
         viewModel.getData()
+
     }
 }

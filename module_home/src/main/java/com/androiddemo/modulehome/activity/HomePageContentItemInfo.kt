@@ -1,6 +1,9 @@
 package com.androiddemo.modulehome.activity
 
 import android.content.Context
+import android.graphics.Color
+import android.graphics.LinearGradient
+import android.graphics.Shader
 import com.androiddemo.modulehome.IntentUtil
 
 /****
@@ -13,6 +16,20 @@ enum class HomePageContentItemInfo {
 
         override fun goto(context: Context) {
             IntentUtil.gotoSingleImageInspectActivity(context, TEST_URL2)
+        }
+    },
+    TEST_BOARD {
+        override fun goto(context: Context) {
+            val linearGradient = LinearGradient(
+                0f,
+                0f,
+                0f,
+                0f,
+                Color.BLUE,
+                Color.BLACK,
+                Shader.TileMode.CLAMP
+            )
+            linearGradient.toString()
         }
     },
     BIG_IMAGES {

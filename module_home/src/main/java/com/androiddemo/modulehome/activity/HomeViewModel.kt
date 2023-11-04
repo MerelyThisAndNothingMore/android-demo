@@ -28,7 +28,8 @@ class HomeViewModel @Inject constructor(private val mRepository: HomeRepository)
     init {
         itemList.value = listOf(
             HomePageContentItemInfo.SINGLE_BIG_IMAGE,
-            HomePageContentItemInfo.BIG_IMAGES
+            HomePageContentItemInfo.BIG_IMAGES,
+            HomePageContentItemInfo.TEST_BOARD
         )
     }
 

@@ -1,4 +1,4 @@
-package com.androiddemo.modulehome.activity
+package com.androiddemo.modulehome.homeframe
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

@@ -1,4 +1,4 @@
-package com.androiddemo.modulehome.activity
+package com.androiddemo.modulehome.homeframe
 
 import android.content.Context
 import android.graphics.Color

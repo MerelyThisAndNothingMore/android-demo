@@ -1,4 +1,4 @@
-package com.androiddemo.modulehome.activity
+package com.androiddemo.modulehome.homeframe
 
 import com.androiddemo.base.mvvm.m.BaseRepository
 import com.androiddemo.modulehome.net.HomeApiService

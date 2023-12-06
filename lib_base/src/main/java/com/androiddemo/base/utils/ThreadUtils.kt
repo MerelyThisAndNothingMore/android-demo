@@ -3,6 +3,11 @@ package com.androiddemo.base.utils
 import android.os.Build
 import android.os.Handler
 import android.os.Looper
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
+import java.util.concurrent.Future
+import java.util.concurrent.ThreadFactory
+import java.util.concurrent.atomic.AtomicInteger
 
 /**
  * 线程相关工具类
@@ -31,6 +36,23 @@ object ThreadUtils {
 
     fun postDelayOnUIThread(runnable: () -> Unit, delay: Long) {
         handler.postDelayed(runnable, delay)
+    }
+
+    fun runOnChildThread(runnable: Runnable?): Future<*>? {
+        return FixedThreadPoolHolder.pool.submit(runnable)
+    }
+
+
+    private object FixedThreadPoolHolder {
+
+        private val mCount = AtomicInteger(0)
+
+        val pool: ExecutorService = Executors.newFixedThreadPool(1, ThreadFactory {
+            val thread: Thread = Executors.defaultThreadFactory().newThread(it)
+            thread.name =
+                "ThreadUtils" + "-" + mCount.getAndIncrement()
+            thread
+        })
     }
 
 }

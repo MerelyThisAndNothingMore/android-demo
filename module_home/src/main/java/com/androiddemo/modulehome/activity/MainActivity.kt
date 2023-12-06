@@ -1,20 +1,13 @@
 package com.androiddemo.modulehome.activity
 
-import android.graphics.Color
-import android.net.Uri
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.androiddemo.modulehome.databinding.HomeActivityMainBinding
 import com.androiddemo.base.ktx.observeLiveData
-import com.androiddemo.base.ktx.setOnSingleClickListener
-import com.androiddemo.base.utils.ImageDownloadListener
-import com.androiddemo.base.utils.ImageLoadUtil
-import com.androiddemo.base.utils.ThreadUtils
 import com.androiddemo.common.ui.BaseActivity
-import com.davemorrissey.labs.subscaleview.ImageSource
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
+import com.androiddemo.modulehome.homeframe.HomePageContentAdapter
+import com.androiddemo.modulehome.homeframe.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import java.io.File
 
 /**
  * 首页

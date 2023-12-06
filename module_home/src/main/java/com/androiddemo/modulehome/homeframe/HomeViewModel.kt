@@ -1,11 +1,9 @@
-package com.androiddemo.modulehome.activity
+package com.androiddemo.modulehome.homeframe
 
-import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.androiddemo.base.ktx.launchIO
 import com.androiddemo.base.mvvm.vm.BaseViewModel
-import com.androiddemo.modulehome.IntentUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch
 import javax.inject.Inject

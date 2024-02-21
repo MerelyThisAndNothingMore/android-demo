@@ -25,3 +25,4 @@ include(
     ":lib_common",
     ":module_home"
 )
+include(":libvideoplayer")

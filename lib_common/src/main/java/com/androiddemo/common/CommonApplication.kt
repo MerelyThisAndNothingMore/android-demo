@@ -8,11 +8,13 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.google.auto.service.AutoService
 import com.androiddemo.base.app.ApplicationLifecycle
 import com.androiddemo.base.BaseApplication
+import com.androiddemo.base.app.MainPageSelectOptionManager
 import com.androiddemo.base.constant.VersionStatus
 import com.androiddemo.base.utils.ForegroundBackgroundObserver
 import com.androiddemo.base.utils.ProcessUtils
 import com.androiddemo.base.utils.SpUtils
 import com.androiddemo.base.utils.network.NetworkStateClient
+import com.androiddemo.common.ui.imageinspect.SingleImageInspectActivity
 import com.tencent.bugly.crashreport.CrashReport
 import com.tencent.smtt.export.external.TbsCoreSettings
 import com.tencent.smtt.sdk.QbSdk
@@ -66,6 +68,7 @@ class CommonApplication : ApplicationLifecycle, ForegroundBackgroundObserver {
             list.add { initNetworkStateClient() }
         }
         list.add { initTencentBugly() }
+        list.add { initMainPageSelectOption() }
         return list
     }
 
@@ -146,6 +149,15 @@ class CommonApplication : ApplicationLifecycle, ForegroundBackgroundObserver {
             BuildConfig.VERSION_TYPE != VersionStatus.RELEASE
         )
         return "Bugly -->> init complete"
+    }
+
+    private fun initMainPageSelectOption(): String {
+
+        SingleImageInspectActivity.selectOption.let {
+            MainPageSelectOptionManager.register(it)
+        }
+
+        return "MainPageSelectOption -->> init complete"
     }
 
     override fun foregroundBackgroundNotify(isForeground: Boolean) {

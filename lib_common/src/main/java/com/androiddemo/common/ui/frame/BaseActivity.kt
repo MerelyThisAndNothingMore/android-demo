@@ -1,4 +1,4 @@
-package com.androiddemo.common.ui
+package com.androiddemo.common.ui.frame
 
 import android.util.Log
 import androidx.viewbinding.ViewBinding

@@ -2,6 +2,8 @@ package com.androiddemo.modulehome.homeframe
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import com.androiddemo.base.app.IMainPageSelectOption
+import com.androiddemo.base.app.MainPageSelectOptionManager
 import com.androiddemo.base.ktx.launchIO
 import com.androiddemo.base.mvvm.vm.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -19,16 +21,12 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val mRepository: HomeRepository) : BaseViewModel() {
 
-    val itemList: MutableLiveData<List<HomePageContentItemInfo>> = MutableLiveData()
+    val itemList: MutableLiveData<List<IMainPageSelectOption>> = MutableLiveData()
 
     val data = MutableLiveData<String>()
 
     init {
-        itemList.value = listOf(
-            HomePageContentItemInfo.SINGLE_BIG_IMAGE,
-            HomePageContentItemInfo.BIG_IMAGES,
-            HomePageContentItemInfo.TEST_BOARD
-        )
+        itemList.value = MainPageSelectOptionManager.loadAll()
     }
 
     /**

@@ -28,6 +28,8 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
+    api(libs.exoplayer)
+
     api DependencyConfig.AndroidX.CoreKtx
     api DependencyConfig.AndroidX.AppCompat
     api DependencyConfig.AndroidX.ConstraintLayout

@@ -4,7 +4,7 @@ import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.androiddemo.modulehome.databinding.HomeActivityMainBinding
 import com.androiddemo.base.ktx.observeLiveData
-import com.androiddemo.common.ui.BaseActivity
+import com.androiddemo.common.ui.frame.BaseActivity
 import com.androiddemo.modulehome.homeframe.HomePageContentAdapter
 import com.androiddemo.modulehome.homeframe.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -40,7 +40,6 @@ class MainActivity : BaseActivity<HomeActivityMainBinding, HomeViewModel>() {
             adapter.refreshAll(it)
         }
     }
-
 
     override fun initRequestData() {
         // 模拟获取数据

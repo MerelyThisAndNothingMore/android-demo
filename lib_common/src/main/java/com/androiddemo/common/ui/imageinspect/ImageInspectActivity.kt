@@ -1,10 +1,9 @@
 package com.androiddemo.common.ui.imageinspect
 
 import androidx.activity.viewModels
-import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.androiddemo.common.databinding.CommonImageInspectActivityBinding
 import com.androiddemo.common.protocol.IntentConfig
-import com.androiddemo.common.ui.BaseActivity
+import com.androiddemo.common.ui.frame.BaseActivity
 
 /****
  * @author : zhangjing

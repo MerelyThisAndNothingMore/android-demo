@@ -1,4 +1,4 @@
-package com.androiddemo.common.ui
+package com.androiddemo.common.ui.frame
 
 import androidx.viewbinding.ViewBinding
 import com.androiddemo.base.mvvm.v.BaseFrameFragment

@@ -1,4 +1,4 @@
-package com.androiddemo.common.ui
+package com.androiddemo.common.ui.frame
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
